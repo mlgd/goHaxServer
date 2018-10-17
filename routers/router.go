@@ -4,6 +4,7 @@ import (
 	"github.com/astaxie/beego"
 
 	"github.com/mlgd/goHaxServer/controllers"
+	"github.com/mlgd/goHaxServer/controllers/api"
 )
 
 func init() {
@@ -11,5 +12,6 @@ func init() {
 
 	beego.Router("/", &controllers.MainController{})
 	beego.Router("/error/:numero", &controllers.ErrorController{}, "get:Get")
-	beego.Router("/hax", &controllers.HaxController{})
+	beego.Router("/hax", &controllers.HaxController{}, "get:Get")
+	beego.Router("/api/dns", &api.DnsController{}, "post:Post")
 }
